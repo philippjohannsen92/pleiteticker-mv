@@ -12,7 +12,7 @@
      Blau:  #122e76  (R18 G46 B118)
      Gold:  #f3b925  (R243 G185 B37)
      Weiß:  #ffffff
-     Dunkel-Blau (Backgrounds): abgestufte  Varianten
+     Dunkel-Blau (Backgrounds): abgestufte Varianten
   ─────────────────────────────────────────────── */
   :root {
     --blau:      #122e76;
@@ -29,7 +29,14 @@
 
   body {
     font-family: 'Poppins', system-ui, sans-serif;
-    background: var(--blau);
+    background-color: #0f1f3d;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 12px
+    );
     color: var(--text);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -37,7 +44,8 @@
 
   /* ── HEADER ───────────────────────────────── */
   header {
-    background: var(--dunkel);
+    background: rgba(12,30,82,0.85);
+    backdrop-filter: blur(4px);
     border-bottom: 2px solid var(--gold);
     padding: 12px 28px;
     display: flex;
@@ -100,28 +108,20 @@
 
   /* ── HERO ─────────────────────────────────── */
   .hero {
-    background: linear-gradient(160deg, var(--dunkel) 0%, var(--blau) 55%, var(--blau-hell) 100%);
+    background: transparent;
     padding: 52px 24px 40px;
     text-align: center;
     position: relative; overflow: hidden;
   }
-  /* Raster */
   .hero::before {
-    content:'';
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(243,185,37,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(243,185,37,.04) 1px, transparent 1px);
-    background-size: 52px 52px;
-    pointer-events:none;
+    display: none;
   }
-  /* Glühen */
   .hero::after {
     content:'';
     position:absolute; top:25%; left:50%;
     transform:translate(-50%,-50%);
     width:600px; height:350px;
-    background:radial-gradient(ellipse, rgba(243,185,37,.1) 0%, transparent 70%);
+    background:radial-gradient(ellipse, rgba(243,185,37,.08) 0%, transparent 70%);
     pointer-events:none;
   }
 
