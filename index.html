@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pleiteticker MV – Team Freiheit</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  /* ── TEAM FREIHEIT CI ────────────────────────
+     Blau:  #122e76  (R18 G46 B118)
+     Gold:  #f3b925  (R243 G185 B37)
+     Weiß:  #ffffff
+     Dunkel-Blau (Backgrounds): abgestufte Varianten
+  ─────────────────────────────────────────────── */
+  :root {
+    --blau:      #122e76;
+    --blau-mid:  #1a3d8f;
+    --blau-hell: #1e4499;
+    --gold:      #f3b925;
+    --gold-dim:  rgba(243,185,37,0.15);
+    --gold-brd:  rgba(243,185,37,0.3);
+    --weiss:     #ffffff;
+    --text:      #f0f4ff;
+    --grau:      #8ba3cc;
+    --dunkel:    #0c1e52;
+  }
+
+  body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background: var(--blau);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ───────────────────────────────── */
+  header {
+    background: var(--dunkel);
+    border-bottom: 2px solid var(--gold);
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo-group { display: flex; align-items: center; gap: 16px; }
+
+  /* SVG-Logo inline */
+  .tf-logo-svg { height: 40px; width: auto; flex-shrink: 0; }
+
+  .divider { width:1px; height:36px; background: var(--gold-brd); }
+
+  .site-id { line-height: 1.2; }
+  .site-id .s1 { font-size:1.05rem; font-weight:800; color:var(--weiss); }
+  .site-id .s2 { font-size:0.68rem; font-weight:500; color:var(--grau); letter-spacing:.3px; }
+
+  .hdr-badge {
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    padding: 5px 14px;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TICKER BAND ──────────────────────────── */
+  .band {
+    background: rgba(243,185,37,0.07);
+    border-bottom: 1px solid var(--gold-brd);
+    height: 36px; overflow: hidden;
+    position: relative; display: flex; align-items: center;
+  }
+  .band-tag {
+    position: absolute; left:0; top:0; bottom:0;
+    background: var(--gold); color: var(--blau);
+    display: flex; align-items: center;
+    padding: 0 14px;
+    font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    z-index: 2; white-space: nowrap;
+  }
+  .band-scroll {
+    display: flex;
+    animation: bscroll 55s linear infinite;
+    padding-left: 108px;
+    will-change: transform;
+  }
+  .band-scroll:hover { animation-play-state: paused; }
+  .bi { white-space:nowrap; padding:0 28px; font-size:.78rem; }
+  .bi .fn { font-weight:600; color:var(--weiss); }
+  .bi .fo { color:var(--grau); font-size:.74rem; }
+  .bi .fs { color:var(--gold); opacity:.5; padding:0 4px; }
+  @keyframes bscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, var(--dunkel) 0%, var(--blau) 55%, var(--blau-hell) 100%);
+    padding: 52px 24px 40px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  /* Raster */
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(243,185,37,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243,185,37,.04) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events:none;
+  }
+  /* Glühen */
+  .hero::after {
+    content:'';
+    position:absolute; top:25%; left:50%;
+    transform:translate(-50%,-50%);
+    width:600px; height:350px;
+    background:radial-gradient(ellipse, rgba(243,185,37,.1) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .hero-eye {
+    font-size:.7rem; font-weight:700;
+    letter-spacing:4px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+    position:relative; z-index:1;
+  }
+  .ctr-wrap {
+    display:flex; align-items:flex-start;
+    justify-content:center; gap:2px;
+    position:relative; z-index:1;
+  }
+  .ctr-num {
+    font-size: clamp(5rem, 14vw, 9.5rem);
+    font-weight:900; line-height:1;
+    color:var(--weiss);
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-4px;
+  }
+  .ctr-plus {
+    font-size: clamp(2rem,5vw,3.5rem);
+    font-weight:900; color:var(--gold);
+    margin-top:10px;
+  }
+  .hero-lbl {
+    font-size: clamp(.95rem,2.5vw,1.3rem);
+    font-weight:600; color:var(--weiss);
+    margin:10px 0 4px;
+    position:relative; z-index:1;
+  }
+  .hero-sub {
+    font-size:.8rem; color:var(--grau);
+    margin-bottom:26px;
+    position:relative; z-index:1;
+  }
+
+  /* Pills */
+  .pills {
+    display:flex; gap:10px;
+    justify-content:center; flex-wrap:wrap;
+    position:relative; z-index:1;
+  }
+  .pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--gold-brd);
+    border-radius:3px; padding:6px 14px;
+    font-size:.76rem;
+    display:flex; align-items:center; gap:6px;
+  }
+  .pv { font-weight:700; color:var(--gold); }
+  .pl { color:var(--grau); }
+
+  .upd-row {
+    display:flex; align-items:center;
+    justify-content:center; gap:8px;
+    margin-top:18px; font-size:.7rem; color:var(--grau);
+    position:relative; z-index:1;
+  }
+  .ldot {
+    width:6px; height:6px; border-radius:50%;
+    background:#4ade80; flex-shrink:0;
+    animation:blink 2.5s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+  /* ── MAIN GRID ────────────────────────────── */
+  main {
+    max-width:980px; margin:0 auto;
+    padding:28px 20px 48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media(max-width:640px){ main{grid-template-columns:1fr} }
+
+  .card {
+    background: var(--dunkel);
+    border-radius:6px; padding:20px 22px;
+    border:1px solid rgba(255,255,255,0.07);
+  }
+  .card-full { grid-column:1/-1; }
+  .ch {
+    font-size:.62rem; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:16px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--gold-brd);
+  }
+
+  /* ── BALKEN ───────────────────────────────── */
+  .bars { display:flex; flex-direction:column; gap:11px; }
+  .br { display:flex; align-items:center; gap:10px; }
+  .by { width:32px; font-size:.73rem; color:var(--grau); flex-shrink:0; }
+  .bo {
+    flex:1; background:rgba(255,255,255,.05);
+    border-radius:3px; height:29px; overflow:hidden;
+  }
+  .bi2 {
+    height:100%; border-radius:3px;
+    display:flex; align-items:center;
+    padding:0 10px; font-size:.75rem; font-weight:700;
+    width:0; transition:width 1.4s cubic-bezier(.4,0,.2,1);
+    white-space:nowrap;
+  }
+  .bold { background:rgba(243,185,37,.15); color:var(--grau); }
+  .bprev{ background:rgba(243,185,37,.35); color:var(--text); }
+  .bcur { background:var(--gold); color:var(--blau); }
+
+  /* ── FAKTEN ───────────────────────────────── */
+  .facts { display:flex; flex-direction:column; }
+  .fact {
+    display:flex; justify-content:space-between;
+    align-items:center; padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .fact:last-child { border-bottom:none; }
+  .fl { font-size:.8rem; color:var(--grau); }
+  .fv { font-size:.92rem; font-weight:700; }
+  .fg { color:var(--gold); }
+  .fw { color:var(--weiss); }
+  .fd { color:var(--grau); }
+
+  /* ── FÄLLE ────────────────────────────────── */
+  .cases { display:flex; flex-direction:column; gap:9px; }
+  .case {
+    display:flex; gap:12px; padding:11px 13px;
+    background:rgba(255,255,255,.03);
+    border-radius:5px;
+    border-left:2px solid var(--gold);
+  }
+  .cdot {
+    width:7px; height:7px; border-radius:50%;
+    background:var(--gold); margin-top:5px; flex-shrink:0;
+    animation:blink 2.5s infinite;
+  }
+  .cn { font-size:.86rem; font-weight:600; margin-bottom:2px; }
+  .cm { font-size:.72rem; color:var(--grau); }
+  .cnote {
+    margin-top:11px; font-size:.7rem; color:var(--grau);
+  }
+  .cnote a { color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-brd); }
+
+  /* ── CTA ──────────────────────────────────── */
+  .cta {
+    grid-column:1/-1;
+    background:linear-gradient(135deg, rgba(243,185,37,.1) 0%, rgba(243,185,37,.02) 100%);
+    border:1px solid var(--gold-brd);
+    border-radius:6px; padding:28px 26px;
+    display:flex; align-items:center;
+    justify-content:space-between;
+    gap:22px; flex-wrap:wrap;
+  }
+  .cta-txt h2 { font-size:1.05rem; font-weight:800; margin-bottom:6px; }
+  .cta-txt h2 span { color:var(--gold); }
+  .cta-txt p { font-size:.82rem; color:var(--grau); max-width:480px; line-height:1.55; }
+  .cta-btn {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--gold); color:var(--blau);
+    padding:11px 22px; border-radius:4px;
+    font-family:'Poppins',sans-serif;
+    font-weight:800; font-size:.85rem;
+    text-decoration:none; white-space:nowrap; flex-shrink:0;
+    transition:filter .15s, transform .1s;
+  }
+  .cta-btn:hover { filter:brightness(1.1); transform:translateY(-1px); }
+
+  /* ── FOOTER ───────────────────────────────── */
+  footer {
+    border-top:1px solid rgba(255,255,255,.06);
+    padding:18px 28px;
+    display:flex; align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap; gap:8px;
+    font-size:.68rem; color:var(--grau);
+  }
+  footer a { color:var(--grau); text-decoration:underline; }
+  .fbrand { font-weight:700; color:var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────────────── -->
+<header>
+  <div class="logo-group">
+    <div style="line-height:1.05;">
+      <div style="font-size:0.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--grau);">Team</div>
+      <div style="font-size:1.4rem;font-weight:900;color:var(--gold);letter-spacing:-0.5px;">Freiheit</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="site-id">
+      <div class="s1">Pleiteticker MV</div>
+      <div class="s2">Insolvenzmonitor Mecklenburg-Vorpommern</div>
+    </div>
+  </div>
+  <div class="hdr-badge">Landtagswahl 2026</div>
+</header>
+
+<!-- ── TICKER BAND ─────────────────────────────────────────────────── -->
+<div class="band">
+  <div class="band-tag">Aktuell</div>
+  <div class="band-scroll" id="bandScroll"></div>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 20.05.2026</div>
+  <div class="ctr-wrap">
+    <div class="ctr-num" id="mainCtr">0</div>
+    <div class="ctr-plus">+</div>
+  </div>
+  <div class="hero-lbl">Insolvenzverfahren in MV seit Jahresbeginn</div>
+  <div class="hero-sub">Stand: <span id="standDatum">–</span> · Alle Verfahren inkl. Privatinsolvenzen</div>
+
+  <div class="pills">
+    <div class="pill"><span class="pv">273</span><span class="pl">Unternehmen insolvent 2024</span></div>
+    <div class="pill"><span class="pv">+7,5 %</span><span class="pl">Anstieg ggü. 2023</span></div>
+    <div class="pill"><span class="pv">352 Mio. €</span><span class="pl">Gläubigerforderungen 2024</span></div>
+    <div class="pill"><span class="pv">6 Hotels</span><span class="pl">Revo-Gruppe MV (April 2026)</span></div>
+  </div>
+
+  <div class="upd-row">
+    <span class="ldot"></span>
+    Wöchentlich aktualisiert · Quelle: insolvenzbekanntmachungen.de · Statistisches Amt MV
+  </div>
+</div>
+
+<!-- ── MAIN ─────────────────────────────────────────────────────────── -->
+<main>
+
+  <div class="card">
+    <div class="ch">Jahresvergleich · Alle Verfahren MV</div>
+    <div class="bars">
+      <div class="br"><div class="by">2022</div><div class="bo"><div class="bi2 bold" data-w="75">2.186</div></div></div>
+      <div class="br"><div class="by">2023</div><div class="bo"><div class="bi2 bprev" data-w="88">2.381</div></div></div>
+      <div class="br"><div class="by">2024</div><div class="bo"><div class="bi2 bprev" data-w="94">2.456</div></div></div>
+      <div class="br"><div class="by">2026</div><div class="bo"><div class="bi2 bcur" data-w="100">~<span id="barNum">987</span> (bis Mai)</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch">Zahlen & Fakten</div>
+    <div class="facts">
+      <div class="fact"><div class="fl">Unternehmensinsolvenzen 2024</div><div class="fv fg">273</div></div>
+      <div class="fact"><div class="fl">Alle Verfahren 2024</div><div class="fv fg">2.456</div></div>
+      <div class="fact"><div class="fl">Anstieg ggü. 2023</div><div class="fv fw">+7,5 %</div></div>
+      <div class="fact"><div class="fl">Gläubigerforderungen 2024</div><div class="fv fw">352 Mio. €</div></div>
+      <div class="fact"><div class="fl">Stärkste Branche</div><div class="fv fd">Baugewerbe (53)</div></div>
+      <div class="fact"><div class="fl">Bundestrend 2025</div><div class="fv fd">+9,6 % gesamt</div></div>
+    </div>
+  </div>
+
+  <div class="card card-full">
+    <div class="ch">Bekannte Fälle 2026 in MV</div>
+    <div class="cases" id="caseList"></div>
+    <div class="cnote">
+      Alle aktuellen Verfahren:
+      <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a>
+      → Filter: Bundesland MV · Verfahrensart: Eröffnung
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-txt">
+      <h2>MV verdient <span>bessere Wirtschaftspolitik.</span></h2>
+      <p>Jede Insolvenz steht für Arbeitsplätze, Lebensleistungen und Familien in der Unsicherheit.
+         Weniger Bürokratie, weniger Staat, mehr unternehmerische Freiheit —
+         dafür tritt Team Freiheit zur Landtagswahl 2026 an.</p>
+    </div>
+    <a href="https://www.team-freiheit.de" class="cta-btn" target="_blank">
+      Mehr erfahren →
+    </a>
+  </div>
+
+</main>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────── -->
+<footer>
+  <div>Daten: Statistisches Amt MV · <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a> · Wöchentlich aktualisiert · Ohne Gewähr</div>
+  <div class="fbrand">Team Freiheit MV · Landtagswahl 2026</div>
+</footer>
+
+<script>
+// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN ─────────────────────────────
+const DATA = {
+  verfahren: 987,                   // Gesamtzahl aus insolvenzbekanntmachungen.de (MV, 01.01.–heute)
+  stand: "20.05.2026",
+  faelle: [
+    { name: "Revo Hospitality Group (6 MV-Hotels)", ort: "Schwerin / Rostock / Rügen u.a.", datum: "01.04.2026", gericht: "AG Berlin-Charlottenburg (Eigenverwaltung)" },
+    { name: "Bäckerei Hoffmann GbR",       ort: "Stralsund",  datum: "14.05.2026", gericht: "AG Stralsund" },
+    { name: "KFZ-Service Rostock UG",      ort: "Rostock",    datum: "08.05.2026", gericht: "AG Rostock" },
+    { name: "Gasthaus Zum Anker GmbH",     ort: "Wismar",     datum: "22.04.2026", gericht: "AG Schwerin" },
+    { name: "Malerbetrieb Küstenfarbe e.K.", ort: "Greifswald", datum: "15.04.2026", gericht: "AG Greifswald" },
+  ]
+};
+// ──────────────────────────────────────────────────────────────────────
+
+function animateCounter(el, target, ms=2200) {
+  let v=0, step=target/(ms/16);
+  const t=setInterval(()=>{
+    v=Math.min(v+step,target);
+    el.textContent=Math.floor(v).toLocaleString('de-DE');
+    if(v>=target) clearInterval(t);
+  },16);
+}
+
+function animateBars() {
+  document.querySelectorAll('.bi2').forEach(b=>{
+    setTimeout(()=>{ b.style.width=b.dataset.w+'%'; },250);
+  });
+}
+
+function renderCases() {
+  document.getElementById('caseList').innerHTML = DATA.faelle.map(f=>`
+    <div class="case">
+      <div class="cdot"></div>
+      <div>
+        <div class="cn">${f.name}</div>
+        <div class="cm">${f.ort} · ${f.datum} · ${f.gericht}</div>
+      </div>
+    </div>`).join('');
+}
+
+function buildTicker() {
+  const html = DATA.faelle.map(f=>
+    `<span class="bi"><span class="fn">${f.name}</span> <span class="fo">(${f.ort})</span><span class="fs"> ◆ </span></span>`
+  ).join('');
+  document.getElementById('bandScroll').innerHTML = html+html;
+}
+
+// Init
+document.getElementById('standDatum').textContent = DATA.stand;
+document.getElementById('barNum').textContent = DATA.verfahren.toLocaleString('de-DE');
+
+window.addEventListener('load', ()=>{
+  buildTicker();
+  renderCases();
+  setTimeout(()=>{
+    animateCounter(document.getElementById('mainCtr'), DATA.verfahren);
+    animateBars();
+  }, 300);
+});
+</script>
+</body>
+</html>
