@@ -8,15 +8,14 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   :root {
-    --blau:      #122e76;
-    --blau-mid:  #1a3d8f;
-    --gold:      #f3b925;
-    --gold-dim:  rgba(243,185,37,0.12);
-    --gold-brd:  rgba(243,185,37,0.28);
-    --weiss:     #ffffff;
-    --text:      #f0f4ff;
-    --grau:      #8ba3cc;
-    --dunkel:    #0c1e52;
+    --blau:    #122e76;
+    --gold:    #f3b925;
+    --gold-dim: rgba(243,185,37,0.12);
+    --gold-brd: rgba(243,185,37,0.28);
+    --weiss:   #ffffff;
+    --text:    #f0f4ff;
+    --grau:    #8ba3cc;
+    --dunkel:  #0c1e52;
   }
   body {
     font-family: 'Poppins', system-ui, sans-serif;
@@ -45,7 +44,6 @@
     position: sticky; top: 0; z-index: 100;
   }
   .logo-group { display: flex; align-items: center; gap: 16px; }
-  .tf-wort { line-height: 1.05; }
   .tf-wort .w1 { font-size:.6rem; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--grau); }
   .tf-wort .w2 { font-size:1.4rem; font-weight:900; color:var(--gold); letter-spacing:-.5px; }
   .divider { width:1px; height:36px; background:var(--gold-brd); }
@@ -89,6 +87,34 @@
   .card-full { grid-column:1/-1; }
   .ch { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--gold-brd); }
 
+  /* DIESE WOCHE */
+  .week-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--gold-brd); flex-wrap:wrap; gap:8px; }
+  .week-title-group { display:flex; align-items:center; gap:12px; }
+  .week-title { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
+  .week-count { font-size:1.6rem; font-weight:900; color:var(--weiss); line-height:1; }
+  .week-count-lbl { font-size:.68rem; color:var(--grau); font-weight:500; margin-left:2px; }
+  .week-badge { background:var(--gold); color:var(--blau); padding:3px 10px; border-radius:3px; font-size:.65rem; font-weight:800; }
+
+  /* FÄLLE */
+  .cases { display:flex; flex-direction:column; gap:9px; }
+  .case { display:flex; gap:12px; padding:11px 13px; background:rgba(255,255,255,.03); border-radius:5px; border-left:2px solid var(--gold); }
+  .cdot { width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:5px; flex-shrink:0; animation:blink 2.5s infinite; }
+  .cn { font-size:.86rem; font-weight:600; margin-bottom:2px; }
+  .cm { font-size:.72rem; color:var(--grau); }
+  .ctag { display:inline-block; background:var(--gold-dim); border:1px solid var(--gold-brd); border-radius:3px; padding:1px 7px; font-size:.65rem; font-weight:700; color:var(--gold); margin-left:6px; }
+  .cnote { margin-top:11px; font-size:.7rem; color:var(--grau); }
+  .cnote a { color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-brd); }
+
+  /* JAHRESVERGLEICH */
+  .bars { display:flex; flex-direction:column; gap:11px; }
+  .bar-row { display:flex; align-items:center; gap:10px; }
+  .bar-yr { width:32px; font-size:.73rem; color:var(--grau); flex-shrink:0; }
+  .bar-outer { flex:1; background:rgba(255,255,255,.05); border-radius:3px; height:29px; overflow:hidden; }
+  .bar-inner { height:100%; border-radius:3px; display:flex; align-items:center; padding:0 10px; font-size:.75rem; font-weight:700; width:0; transition:width 1.4s cubic-bezier(.4,0,.2,1); white-space:nowrap; }
+  .bold  { background:rgba(243,185,37,.15); color:var(--grau); }
+  .bprev { background:rgba(243,185,37,.35); color:var(--text); }
+  .bcur  { background:var(--gold); color:var(--blau); }
+
   /* BRANCHEN */
   .branchen { display:flex; flex-direction:column; gap:10px; }
   .br-row { display:flex; align-items:center; gap:10px; }
@@ -110,26 +136,6 @@
   .fg { color:var(--gold); }
   .fw { color:var(--weiss); }
   .fd { color:var(--grau); }
-
-  /* FÄLLE */
-  .cases { display:flex; flex-direction:column; gap:9px; }
-  .case { display:flex; gap:12px; padding:11px 13px; background:rgba(255,255,255,.03); border-radius:5px; border-left:2px solid var(--gold); }
-  .cdot { width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:5px; flex-shrink:0; animation:blink 2.5s infinite; }
-  .cn { font-size:.86rem; font-weight:600; margin-bottom:2px; }
-  .cm { font-size:.72rem; color:var(--grau); }
-  .ctag { display:inline-block; background:var(--gold-dim); border:1px solid var(--gold-brd); border-radius:3px; padding:1px 7px; font-size:.65rem; font-weight:700; color:var(--gold); margin-left:6px; }
-  .cnote { margin-top:11px; font-size:.7rem; color:var(--grau); }
-  .cnote a { color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-brd); }
-
-  /* JAHRESVERGLEICH */
-  .bars { display:flex; flex-direction:column; gap:11px; }
-  .bar-row { display:flex; align-items:center; gap:10px; }
-  .bar-yr { width:32px; font-size:.73rem; color:var(--grau); flex-shrink:0; }
-  .bar-outer { flex:1; background:rgba(255,255,255,.05); border-radius:3px; height:29px; overflow:hidden; }
-  .bar-inner { height:100%; border-radius:3px; display:flex; align-items:center; padding:0 10px; font-size:.75rem; font-weight:700; width:0; transition:width 1.4s cubic-bezier(.4,0,.2,1); white-space:nowrap; }
-  .bold { background:rgba(243,185,37,.15); color:var(--grau); }
-  .bprev { background:rgba(243,185,37,.35); color:var(--text); }
-  .bcur { background:var(--gold); color:var(--blau); }
 
   /* CTA */
   .cta { grid-column:1/-1; background:linear-gradient(135deg,rgba(243,185,37,.1) 0%,rgba(243,185,37,.02) 100%); border:1px solid var(--gold-brd); border-radius:6px; padding:28px 26px; display:flex; align-items:center; justify-content:space-between; gap:22px; flex-wrap:wrap; }
@@ -170,7 +176,7 @@
     <div class="ctr-plus">+</div>
   </div>
   <div class="hero-lbl">eröffnete Insolvenzverfahren in MV seit Jahresbeginn</div>
-  <div class="hero-sub">Stand: <span id="standDatum">–</span> · Nur Eröffnungen · Ø 5 neue Verfahren pro Woche · Quelle: insolvenzbekanntmachungen.de</div>
+  <div class="hero-sub">Stand: <span id="standDatum">–</span> · Nur Eröffnungen · Wöchentlich aktualisiert (Sonntag 18 Uhr) · Quelle: insolvenzbekanntmachungen.de</div>
   <div class="pills">
     <div class="pill"><span class="pv">+30 %</span><span class="pl">mehr als im Vorjahreszeitraum</span></div>
     <div class="pill"><span class="pv">83 → 108</span><span class="pl">Jan–Mai 2025 vs. 2026</span></div>
@@ -178,21 +184,37 @@
   </div>
   <div class="upd-row">
     <span class="ldot"></span>
-    Quelle: CRIF März 2026 · insolvenzbekanntmachungen.de · Wöchentlich aktualisiert
+    Nächste Aktualisierung: Sonntag 18:00 Uhr
   </div>
 </div>
 
 <main>
 
-  <!-- BRANCHEN -->
+  <!-- DIESE WOCHE -->
+  <div class="card card-full">
+    <div class="week-header">
+      <div class="week-title-group">
+        <div class="week-title">Diese Woche pleite gegangen</div>
+        <div><span class="week-count" id="weekCount">–</span><span class="week-count-lbl">neue Insolvenzeröffnungen</span></div>
+      </div>
+      <div class="week-badge" id="weekLabel">–</div>
+    </div>
+    <div class="cases" id="weekCases"></div>
+    <div class="cnote" style="margin-top:12px;">
+      Vollständige Liste: <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a>
+      → Bundesland: MV · Gegenstand: Eröffnungen
+    </div>
+  </div>
+
+  <!-- JAHRESVERGLEICH -->
   <div class="card">
-    <div class="ch">Betroffene Branchen 2024 · MV</div>
-    <div class="branchen">
-      <div class="br-row"><div class="br-label">Baugewerbe</div><div class="br-bar-outer"><div class="br-bar-inner bc1" data-w="100">53 Fälle</div></div></div>
-      <div class="br-row"><div class="br-label">Gastgewerbe</div><div class="br-bar-outer"><div class="br-bar-inner bc2" data-w="79">42 Fälle</div></div></div>
-      <div class="br-row"><div class="br-label">Handel</div><div class="br-bar-outer"><div class="br-bar-inner bc3" data-w="60">32 Fälle</div></div></div>
-      <div class="br-row"><div class="br-label">Landwirtschaft</div><div class="br-bar-outer"><div class="br-bar-inner bc4" data-w="40">21 Fälle</div></div></div>
-      <div class="br-row"><div class="br-label">Dienstleistung</div><div class="br-bar-outer"><div class="br-bar-inner bc5" data-w="30">16 Fälle</div></div></div>
+    <div class="ch">Jahresvergleich · Eröffnungen MV · insolvenzbekanntmachungen.de</div>
+    <div class="bars">
+      <div class="bar-row"><div class="bar-yr">2022</div><div class="bar-outer"><div class="bar-inner bold" data-w="53">101</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2023</div><div class="bar-outer"><div class="bar-inner bprev" data-w="75">143</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2024</div><div class="bar-outer"><div class="bar-inner bprev" data-w="64">122</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2025</div><div class="bar-outer"><div class="bar-inner bprev" data-w="100">192</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">108 (Jan–Mai) +30%</div></div></div>
     </div>
   </div>
 
@@ -208,31 +230,25 @@
     </div>
   </div>
 
-  <!-- JAHRESVERGLEICH -->
-  <div class="card">
-    <div class="ch">Jahresvergleich · Eröffnungen MV · Quelle: insolvenzbekanntmachungen.de</div>
-    <div class="bars">
-      <div class="bar-row"><div class="bar-yr">2022</div><div class="bar-outer"><div class="bar-inner bold" data-w="53">101</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2023</div><div class="bar-outer"><div class="bar-inner bprev" data-w="75">143</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2024</div><div class="bar-outer"><div class="bar-inner bprev" data-w="64">122</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2025</div><div class="bar-outer"><div class="bar-inner bprev" data-w="100">192</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">108 (Jan–Mai) +30%</div></div></div>
-    </div>
-  </div>
-
-  <!-- BEKANNTE FÄLLE -->
-  <div class="card">
-    <div class="ch">Bekannte Fälle 2026</div>
-    <div class="cases" id="caseList"></div>
-  </div>
-
-  <!-- ALLE FÄLLE GROSS -->
+  <!-- SCHLAGLICHTER -->
   <div class="card card-full">
-    <div class="ch">Schlaglichter: Große Insolvenzen & Schließungen 2026 in MV</div>
+    <div class="ch">Schlaglichter · Große Insolvenzen 2026 in MV</div>
     <div class="cases" id="bigCaseList"></div>
     <div class="cnote" style="margin-top:14px;">
       Alle Verfahren: <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a>
       → Bundesland: MV · Gegenstand: Eröffnungen
+    </div>
+  </div>
+
+  <!-- BRANCHEN -->
+  <div class="card card-full">
+    <div class="ch">Betroffene Branchen · MV 2024 (Creditreform)</div>
+    <div class="branchen">
+      <div class="br-row"><div class="br-label">Baugewerbe</div><div class="br-bar-outer"><div class="br-bar-inner bc1" data-w="100">53 Fälle</div></div></div>
+      <div class="br-row"><div class="br-label">Gastgewerbe</div><div class="br-bar-outer"><div class="br-bar-inner bc2" data-w="79">42 Fälle</div></div></div>
+      <div class="br-row"><div class="br-label">Handel</div><div class="br-bar-outer"><div class="br-bar-inner bc3" data-w="60">32 Fälle</div></div></div>
+      <div class="br-row"><div class="br-label">Landwirtschaft</div><div class="br-bar-outer"><div class="br-bar-inner bc4" data-w="40">21 Fälle</div></div></div>
+      <div class="br-row"><div class="br-label">Dienstleistung</div><div class="br-bar-outer"><div class="br-bar-inner bc5" data-w="30">16 Fälle</div></div></div>
     </div>
   </div>
 
@@ -250,32 +266,48 @@
 </main>
 
 <footer>
-  <div>Daten: Statistisches Amt MV · Creditreform · <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a> · Wöchentlich aktualisiert · Ohne Gewähr</div>
+  <div>Daten: insolvenzbekanntmachungen.de · Creditreform · Wöchentlich aktualisiert (So. 18 Uhr) · Ohne Gewähr</div>
   <div class="fbrand">Team Freiheit MV · Landtagswahl 2026</div>
 </footer>
 
 <script>
-// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN ────────────────────────────
+// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN (jeden Sonntag 18 Uhr) ─────
 const DATA = {
   verfahren: 108,
   stand: "21.05.2026",
 
-  // Ticker + kleine Falliste: bekannte Eröffnungen 2026
-  faelle: [
-    { name: "Revo Hospitality Group", ort: "6 Hotels in MV", datum: "01.04.2026", gericht: "AG Berlin-Charlottenburg", branche: "Gastgewerbe" },
-    { name: "BLF Schweineaufzucht GmbH", ort: "Bernitt / Gnoien / Viezen", datum: "01.04.2026", gericht: "AG Rostock", branche: "Landwirtschaft" },
-    { name: "MV Babyporc GmbH", ort: "Friedland / Heidekrug", datum: "01.04.2026", gericht: "AG Rostock", branche: "Landwirtschaft" },
-    { name: "TM Sportmarkt GmbH", ort: "Stralsund", datum: "01.04.2026", gericht: "AG Stralsund", branche: "Handel" },
-    { name: "4th condition GmbH", ort: "Stralsund", datum: "12.01.2026", gericht: "AG Stralsund", branche: "Dienstleistung" },
-    { name: "bb gesellschaft für beruf und bildung mbH MV", ort: "Rostock", datum: "25.02.2026", gericht: "AG Flensburg", branche: "Bildung" },
-  ],
+  // DIESE WOCHE — Zeitraum der letzten 7 Tage eintragen
+  woche: {
+    label: "15.–21.05.2026",
+    anzahl: 8,
+    arbeitsplaetze: null, // Zahl eintragen wenn bekannt, sonst null lassen
+    faelle: [
+      { name: "Hanseglas Rostock GmbH", ort: "Bentwisch", branche: "Industrie" },
+      { name: "Rittmeister-Destille GmbH", ort: "Rostock", branche: "Lebensmittel" },
+      { name: "Kühl, Christin", ort: "Rostock", branche: "Privatinsolvenz" },
+      { name: "Mohammad Ali, Somar", ort: "Rostock", branche: "Privatinsolvenz" },
+      { name: "Amme, Petra", ort: "Waren (Müritz)", branche: "Privatinsolvenz" },
+    ]
+  },
 
-  // Große Schlaglichter mit mehr Kontext
+  // SCHLAGLICHTER — nur 2026er Eröffnungen
   bigFaelle: [
     { name: "Revo Hospitality Group", ort: "Schwerin, Rostock, Rügen, Stralsund, Wismar, Neustadt-Glewe", datum: "April 2026", info: "6 Hotels in MV betroffen · Eigenverwaltung beantragt", branche: "Gastgewerbe" },
     { name: "BLF Schweineaufzucht GmbH + MV Babyporc GmbH", ort: "Landkreis Rostock & Mecklenburgische Seenplatte", datum: "April 2026", info: "5 Betriebsteile · 28 Mitarbeiter · Biogasanlage mitbetroffen", branche: "Landwirtschaft" },
-    { name: "Melitta Papierfabrik Neu Kaliß", ort: "Neu Kaliß", datum: "31.03.2026", info: "Schließung nach über 100 Jahren · 115 Arbeitsplätze verloren", branche: "Industrie" },
-    { name: "Mecklenburger Backstuben GmbH", ort: "Norddeutschland / MV", datum: "Nov. 2025", info: "Traditionsbäckerei insolvent · Teil einer bundesweiten Pleitewelle im Bäckereihandwerk", branche: "Lebensmittel" },
+    { name: "Hotelgesellschaft Stuersche Hintermühle GmbH & Co. KG", ort: "Stuer", datum: "17.04.2026", info: "Traditionelles Landhotel insolvent", branche: "Gastgewerbe" },
+    { name: "Honigprinz GmbH", ort: "Rostock", datum: "16.04.2026", info: "Regionaler Lebensmittelhersteller", branche: "Lebensmittel" },
+    { name: "Cara Tech GmbH", ort: "Crivitz", datum: "27.03.2026", info: "Technologieunternehmen", branche: "Technologie" },
+    { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", datum: "25.03.2026", info: "Bauunternehmen insolvent", branche: "Baugewerbe" },
+  ],
+
+  // TICKER
+  ticker: [
+    { name: "Revo Hospitality Group", ort: "6 Hotels MV", branche: "Gastgewerbe" },
+    { name: "BLF Schweineaufzucht GmbH", ort: "Bernitt", branche: "Landwirtschaft" },
+    { name: "Honigprinz GmbH", ort: "Rostock", branche: "Lebensmittel" },
+    { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", branche: "Baugewerbe" },
+    { name: "Cara Tech GmbH", ort: "Crivitz", branche: "Technologie" },
+    { name: "Hanseglas Rostock GmbH", ort: "Bentwisch", branche: "Industrie" },
   ]
 };
 // ─────────────────────────────────────────────────────────────────────
@@ -291,13 +323,15 @@ function animateBars() {
   });
 }
 
-function renderCases() {
-  document.getElementById('caseList').innerHTML = DATA.faelle.map(f=>`
+function renderWeek() {
+  document.getElementById('weekLabel').textContent = DATA.woche.label;
+  document.getElementById('weekCount').textContent = DATA.woche.anzahl;
+  document.getElementById('weekCases').innerHTML = DATA.woche.faelle.map(f=>`
     <div class="case">
       <div class="cdot"></div>
       <div>
         <div class="cn">${f.name}<span class="ctag">${f.branche}</span></div>
-        <div class="cm">${f.ort} · ${f.datum} · ${f.gericht}</div>
+        <div class="cm">${f.ort}</div>
       </div>
     </div>`).join('');
 }
@@ -315,7 +349,7 @@ function renderBigCases() {
 }
 
 function buildTicker() {
-  const html = DATA.faelle.map(f=>
+  const html = DATA.ticker.map(f=>
     `<span class="bi"><span class="fn">${f.name}</span> <span class="fb">[${f.branche}]</span> <span class="fo">(${f.ort})</span><span class="fs"> ◆ </span></span>`
   ).join('');
   document.getElementById('bandScroll').innerHTML = html+html;
@@ -325,7 +359,7 @@ document.getElementById('standDatum').textContent = DATA.stand;
 
 window.addEventListener('load', ()=>{
   buildTicker();
-  renderCases();
+  renderWeek();
   renderBigCases();
   setTimeout(()=>{
     animateCounter(document.getElementById('mainCtr'), DATA.verfahren);
