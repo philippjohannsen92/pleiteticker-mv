@@ -170,13 +170,13 @@
 </div>
 
 <div class="hero">
-  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 21.05.2026</div>
+  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 22.05.2026</div>
   <div class="ctr-wrap">
     <div class="ctr-num" id="mainCtr">0</div>
     <div class="ctr-plus">+</div>
   </div>
   <div class="hero-lbl">eröffnete Insolvenzverfahren in MV seit Jahresbeginn</div>
-  <div class="hero-sub">Stand: <span id="standDatum">–</span> · Nur Eröffnungen · Wöchentlich aktualisiert (Sonntag 18 Uhr) · Quelle: insolvenzbekanntmachungen.de</div>
+  <div class="hero-sub">Stand: <span id="standDatum">–</span> · Nur Eröffnungen · Wöchentlich aktualisiert · Quelle: insolvenzbekanntmachungen.de</div>
   <div class="pills">
     <div class="pill"><span class="pv">+30 %</span><span class="pl">mehr als im Vorjahreszeitraum</span></div>
     <div class="pill"><span class="pv">83 → 108</span><span class="pl">Jan–Mai 2025 vs. 2026</span></div>
@@ -273,20 +273,24 @@
 <script>
 // ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN (jeden Sonntag 18 Uhr) ─────
 const DATA = {
-  verfahren: 108,
-  stand: "21.05.2026",
+  verfahren: 112,
+  stand: "22.05.2026",
 
   // DIESE WOCHE — Zeitraum der letzten 7 Tage eintragen
   woche: {
-    label: "15.–21.05.2026",
-    anzahl: 8,
-    arbeitsplaetze: null, // Zahl eintragen wenn bekannt, sonst null lassen
+    label: "KW 21 · 18.–24.05.2026",
+    anzahl: 32,
     faelle: [
-      { name: "Hanseglas Rostock GmbH", ort: "Bentwisch", branche: "Industrie" },
-      { name: "Rittmeister-Destille GmbH", ort: "Rostock", branche: "Lebensmittel" },
-      { name: "Kühl, Christin", ort: "Rostock", branche: "Privatinsolvenz" },
-      { name: "Mohammad Ali, Somar", ort: "Rostock", branche: "Privatinsolvenz" },
-      { name: "Amme, Petra", ort: "Waren (Müritz)", branche: "Privatinsolvenz" },
+      { name: "Pauly & Pless Immobilien eGbR", ort: "Malchow", branche: "Immobilien" },
+      { name: "Geisler, Cindy", ort: "Ostseebad Binz", branche: "Privatinsolvenz" },
+      { name: "Bookhahn, Heiko", ort: "Richtenberg", branche: "Privatinsolvenz" },
+      { name: "Höppner, Maximilian", ort: "Güstrow", branche: "Privatinsolvenz" },
+      { name: "Hoth, Michael", ort: "Rostock", branche: "Privatinsolvenz" },
+      { name: "Kasper, Anja", ort: "Altenkirchen", branche: "Privatinsolvenz" },
+      { name: "Miks, Alina-Marie", ort: "Schwaan", branche: "Privatinsolvenz" },
+      { name: "Naatz, Michael", ort: "Rostock", branche: "Privatinsolvenz" },
+      { name: "Trowe, Rene", ort: "Neustrelitz", branche: "Privatinsolvenz" },
+      { name: "Wagner, Gernot", ort: "Neukloster", branche: "Privatinsolvenz" },
     ]
   },
 
