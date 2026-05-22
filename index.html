@@ -90,10 +90,10 @@
 
   /* DIESE WOCHE */
   .week-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--gold-brd); flex-wrap:wrap; gap:8px; }
-  .week-title-group { display:flex; align-items:center; gap:12px; }
+  .week-title-group { display:flex; align-items:center; gap:8px; }
   .week-title { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-count { font-size:1.6rem; font-weight:900; color:var(--weiss); line-height:1; }
-  .week-count-lbl { font-size:.68rem; color:var(--grau); font-weight:500; margin-left:2px; }
+  .week-count-lbl { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-badge { background:var(--gold); color:var(--blau); padding:3px 10px; border-radius:3px; font-size:.65rem; font-weight:800; }
 
   /* FÄLLE */
@@ -195,8 +195,9 @@
   <div class="card card-full">
     <div class="week-header">
       <div class="week-title-group">
-        <div class="week-title">Diese Woche pleite gegangen</div>
-        <div><span class="week-count" id="weekCount">–</span><span class="week-count-lbl">neue Insolvenzeröffnungen</span></div>
+        <div class="week-title">Diese Woche</div>
+        <div class="week-count" id="weekCount">–</div>
+        <div class="week-count-lbl">Neue Insolvenzeröffnungen</div>
       </div>
       <div class="week-badge" id="weekLabel">–</div>
     </div>
