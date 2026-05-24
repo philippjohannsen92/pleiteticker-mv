@@ -96,7 +96,30 @@
   .week-count-lbl { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-badge { background:var(--gold); color:var(--blau); padding:3px 10px; border-radius:3px; font-size:.65rem; font-weight:800; }
 
-  /* FÄLLE */
+  /* BREAKING BANNER */
+  .breaking {
+    max-width:980px; margin: 0 auto 0; padding: 0 20px;
+    position: relative; z-index: 1;
+  }
+  .breaking-inner {
+    background: linear-gradient(135deg, rgba(243,185,37,0.15) 0%, rgba(243,185,37,0.05) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .breaking-tag {
+    background: var(--gold); color: var(--blau);
+    font-size: .65rem; font-weight: 900;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 3px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .breaking-text {
+    font-size: .85rem; color: var(--text); line-height: 1.55; flex: 1;
+  }
+  .breaking-text strong { color: var(--gold); }
   .cases { display:flex; flex-direction:column; gap:9px; }
   .case { display:flex; gap:12px; padding:11px 13px; background:rgba(255,255,255,.03); border-radius:5px; border-left:2px solid var(--gold); }
   .cdot { width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:5px; flex-shrink:0; animation:blink 2.5s infinite; }
@@ -171,7 +194,7 @@
 </div>
 
 <div class="hero">
-  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 22.05.2026</div>
+  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 24.05.2026</div>
   <div class="ctr-wrap">
     <div class="ctr-num" id="mainCtr">0</div>
     <div class="ctr-plus">+</div>
@@ -189,6 +212,16 @@
   </div>
 </div>
 
+<!-- BREAKING BANNER -->
+<div class="breaking">
+  <div class="breaking-inner">
+    <div class="breaking-tag">⚠️ Ausreißerwoche</div>
+    <div class="breaking-text">
+      <strong>36 Eröffnungen in KW 21</strong> — das sind <strong>31 % aller bisherigen Verfahren 2026</strong> in nur 7 Tagen. Der wöchentliche Durchschnitt liegt sonst bei 5–6 Eröffnungen.
+    </div>
+  </div>
+</div>
+
 <main>
 
   <!-- DIESE WOCHE -->
@@ -202,7 +235,12 @@
       <div class="week-badge" id="weekLabel">–</div>
     </div>
     <div class="cases" id="weekCases"></div>
-    <div class="cnote" style="margin-top:12px;">
+    <div class="ausreisser">
+      <div class="ausreisser-icon">⚠️</div>
+      <div class="ausreisser-text">
+        <strong>Ausreißerwoche:</strong> 36 Eröffnungen in KW 21 — das sind <strong>31 % aller bisherigen Verfahren 2026</strong> in nur 7 Tagen. Zum Vergleich: Der wöchentliche Durchschnitt liegt bei 5–6 Eröffnungen.
+      </div>
+    </div>
       Vollständige Liste: <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a>
       → Bundesland: MV · Gegenstand: Eröffnungen
     </div>
@@ -276,7 +314,7 @@
 // ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN (jeden Sonntag 18 Uhr) ─────
 const DATA = {
   verfahren: 116,
-  stand: "22.05.2026",
+  stand: "24.05.2026",
 
   // DIESE WOCHE — Zeitraum der letzten 7 Tage eintragen
   woche: {
@@ -362,6 +400,7 @@ function buildTicker() {
 }
 
 document.getElementById('standDatum').textContent = DATA.stand;
+document.getElementById('standDatum').style.display = 'inline';
 
 window.addEventListener('load', ()=>{
   buildTicker();
