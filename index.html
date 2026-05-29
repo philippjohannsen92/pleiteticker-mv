@@ -45,8 +45,6 @@
   }
   .logo-group { display: flex; align-items: center; gap: 16px; }
   .tf-logo-img { height: 40px; width: auto; mix-blend-mode: screen; filter: brightness(1.1); }
-  .tf-wort .w1 { font-size:.6rem; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--grau); }
-  .tf-wort .w2 { font-size:1.4rem; font-weight:900; color:var(--gold); letter-spacing:-.5px; }
   .divider { width:1px; height:36px; background:var(--gold-brd); }
   .site-id .s1 { font-size:1.05rem; font-weight:800; color:var(--weiss); }
   .site-id .s2 { font-size:.68rem; color:var(--grau); }
@@ -81,6 +79,13 @@
   .ldot { width:6px; height:6px; border-radius:50%; background:#4ade80; flex-shrink:0; animation:blink 2.5s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
+  /* BREAKING BANNER */
+  .breaking { max-width:980px; margin:0 auto; padding:0 20px; position:relative; z-index:1; }
+  .breaking-inner { background:linear-gradient(135deg, rgba(243,185,37,0.15) 0%, rgba(243,185,37,0.05) 100%); border:2px solid var(--gold); border-radius:8px; padding:18px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .breaking-tag { background:var(--gold); color:var(--blau); font-size:.65rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:3px; white-space:nowrap; flex-shrink:0; }
+  .breaking-text { font-size:.85rem; color:var(--text); line-height:1.55; flex:1; }
+  .breaking-text strong { color:var(--gold); }
+
   /* MAIN */
   main { max-width:980px; margin:0 auto; padding:28px 20px 48px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   @media(max-width:640px){ main{grid-template-columns:1fr} }
@@ -96,30 +101,7 @@
   .week-count-lbl { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-badge { background:var(--gold); color:var(--blau); padding:3px 10px; border-radius:3px; font-size:.65rem; font-weight:800; }
 
-  /* BREAKING BANNER */
-  .breaking {
-    max-width:980px; margin: 0 auto 0; padding: 0 20px;
-    position: relative; z-index: 1;
-  }
-  .breaking-inner {
-    background: linear-gradient(135deg, rgba(243,185,37,0.15) 0%, rgba(243,185,37,0.05) 100%);
-    border: 2px solid var(--gold);
-    border-radius: 8px;
-    padding: 18px 22px;
-    display: flex; align-items: center; gap: 16px;
-    flex-wrap: wrap;
-  }
-  .breaking-tag {
-    background: var(--gold); color: var(--blau);
-    font-size: .65rem; font-weight: 900;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 3px;
-    white-space: nowrap; flex-shrink: 0;
-  }
-  .breaking-text {
-    font-size: .85rem; color: var(--text); line-height: 1.55; flex: 1;
-  }
-  .breaking-text strong { color: var(--gold); }
+  /* FÄLLE */
   .cases { display:flex; flex-direction:column; gap:9px; }
   .case { display:flex; gap:12px; padding:11px 13px; background:rgba(255,255,255,.03); border-radius:5px; border-left:2px solid var(--gold); }
   .cdot { width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:5px; flex-shrink:0; animation:blink 2.5s infinite; }
@@ -208,7 +190,7 @@
   </div>
   <div class="upd-row">
     <span class="ldot"></span>
-    Nächste Aktualisierung: Sonntag 18:00 Uhr
+    Nächste Aktualisierung: Freitag Nachmittag
   </div>
 </div>
 
@@ -235,12 +217,7 @@
       <div class="week-badge" id="weekLabel">–</div>
     </div>
     <div class="cases" id="weekCases"></div>
-    <div class="ausreisser">
-      <div class="ausreisser-icon">⚠️</div>
-      <div class="ausreisser-text">
-        <strong>Ausreißerwoche:</strong> 36 Eröffnungen in KW 21 — das sind <strong>31 % aller bisherigen Verfahren 2026</strong> in nur 7 Tagen. Zum Vergleich: Der wöchentliche Durchschnitt liegt bei 5–6 Eröffnungen.
-      </div>
-    </div>
+    <div class="cnote" style="margin-top:12px;">
       Vollständige Liste: <a href="https://neu.insolvenzbekanntmachungen.de" target="_blank">insolvenzbekanntmachungen.de</a>
       → Bundesland: MV · Gegenstand: Eröffnungen
     </div>
@@ -254,7 +231,7 @@
       <div class="bar-row"><div class="bar-yr">2023</div><div class="bar-outer"><div class="bar-inner bprev" data-w="75">143</div></div></div>
       <div class="bar-row"><div class="bar-yr">2024</div><div class="bar-outer"><div class="bar-inner bprev" data-w="64">122</div></div></div>
       <div class="bar-row"><div class="bar-yr">2025</div><div class="bar-outer"><div class="bar-inner bprev" data-w="100">192</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">108 (Jan–Mai) +30%</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">153 (Jan–Mai) +70%</div></div></div>
     </div>
   </div>
 
@@ -296,9 +273,7 @@
   <div class="cta">
     <div class="cta-txt">
       <h2>MV verdient <span>bessere Wirtschaftspolitik.</span></h2>
-      <p>Jede Insolvenz steht für Arbeitsplätze, Lebensleistungen und Familien in der Unsicherheit.
-         Weniger Bürokratie, weniger Staat, mehr unternehmerische Freiheit —
-         dafür tritt Team Freiheit zur Landtagswahl 2026 an.</p>
+      <p>Jede Insolvenz steht für Arbeitsplätze, Lebensleistungen und Familien in der Unsicherheit. Weniger Bürokratie, weniger Staat, mehr unternehmerische Freiheit — dafür tritt Team Freiheit zur Landtagswahl 2026 an.</p>
     </div>
     <a href="https://www.team-freiheit.de" class="cta-btn" target="_blank">Mehr erfahren →</a>
   </div>
@@ -306,35 +281,33 @@
 </main>
 
 <footer>
-  <div>Daten: insolvenzbekanntmachungen.de · Creditreform · Wöchentlich aktualisiert (So. 18 Uhr) · Ohne Gewähr</div>
+  <div>Daten: insolvenzbekanntmachungen.de · Creditreform · Wöchentlich aktualisiert · Ohne Gewähr</div>
   <div class="fbrand">Team Freiheit MV · Landtagswahl 2026</div>
 </footer>
 
 <script>
-// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN (jeden Sonntag 18 Uhr) ─────
+// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN ────────────────────────────
 const DATA = {
   verfahren: 153,
   stand: "29.05.2026",
 
-  // DIESE WOCHE — Zeitraum der letzten 7 Tage eintragen
   woche: {
-    label: "KW 21 · 18.–24.05.2026",
-    anzahl: 32,
+    label: "KW 22 · 25.–31.05.2026",
+    anzahl: 37,
     faelle: [
-      { name: "Pauly & Pless Immobilien eGbR", ort: "Malchow", branche: "Immobilien" },
-      { name: "Geisler, Cindy", ort: "Ostseebad Binz", branche: "Privatinsolvenz" },
-      { name: "Bookhahn, Heiko", ort: "Richtenberg", branche: "Privatinsolvenz" },
-      { name: "Höppner, Maximilian", ort: "Güstrow", branche: "Privatinsolvenz" },
-      { name: "Hoth, Michael", ort: "Rostock", branche: "Privatinsolvenz" },
-      { name: "Kasper, Anja", ort: "Altenkirchen", branche: "Privatinsolvenz" },
-      { name: "Miks, Alina-Marie", ort: "Schwaan", branche: "Privatinsolvenz" },
-      { name: "Naatz, Michael", ort: "Rostock", branche: "Privatinsolvenz" },
-      { name: "Trowe, Rene", ort: "Neustrelitz", branche: "Privatinsolvenz" },
-      { name: "Wagner, Gernot", ort: "Neukloster", branche: "Privatinsolvenz" },
+      { name: "Pi Print GmbH", ort: "Stralsund", branche: "Druck/Medien" },
+      { name: "Gebhardt, Jürgen", ort: "Gadebusch", branche: "Privatinsolvenz" },
+      { name: "Füßle, Joanne Jasmin", ort: "Schwerin", branche: "Privatinsolvenz" },
+      { name: "Höhne, Lars", ort: "Bansin", branche: "Privatinsolvenz" },
+      { name: "Kuczmann, Tobias", ort: "Schwerin", branche: "Privatinsolvenz" },
+      { name: "Radtke, Vivian-Michelle", ort: "Neubrandenburg", branche: "Privatinsolvenz" },
+      { name: "Röhl, Daniel", ort: "Rostock", branche: "Privatinsolvenz" },
+      { name: "Abdullah, Adnan", ort: "Neubrandenburg", branche: "Privatinsolvenz" },
+      { name: "Ehrlich, Hanno", ort: "Peenehagen", branche: "Privatinsolvenz" },
+      { name: "Woelk, Maik", ort: "Dabel", branche: "Privatinsolvenz" },
     ]
   },
 
-  // SCHLAGLICHTER — nur 2026er Eröffnungen
   bigFaelle: [
     { name: "Revo Hospitality Group", ort: "Schwerin, Rostock, Rügen, Stralsund, Wismar, Neustadt-Glewe", datum: "April 2026", info: "6 Hotels in MV betroffen · Eigenverwaltung beantragt", branche: "Gastgewerbe" },
     { name: "BLF Schweineaufzucht GmbH + MV Babyporc GmbH", ort: "Landkreis Rostock & Mecklenburgische Seenplatte", datum: "April 2026", info: "5 Betriebsteile · 28 Mitarbeiter · Biogasanlage mitbetroffen", branche: "Landwirtschaft" },
@@ -344,14 +317,13 @@ const DATA = {
     { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", datum: "25.03.2026", info: "Bauunternehmen insolvent", branche: "Baugewerbe" },
   ],
 
-  // TICKER
   ticker: [
+    { name: "Pi Print GmbH", ort: "Stralsund", branche: "Druck/Medien" },
     { name: "Revo Hospitality Group", ort: "6 Hotels MV", branche: "Gastgewerbe" },
     { name: "BLF Schweineaufzucht GmbH", ort: "Bernitt", branche: "Landwirtschaft" },
     { name: "Honigprinz GmbH", ort: "Rostock", branche: "Lebensmittel" },
     { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", branche: "Baugewerbe" },
     { name: "Cara Tech GmbH", ort: "Crivitz", branche: "Technologie" },
-    { name: "Hanseglas Rostock GmbH", ort: "Bentwisch", branche: "Industrie" },
   ]
 };
 // ─────────────────────────────────────────────────────────────────────
