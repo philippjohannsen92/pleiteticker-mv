@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pleiteticker MV – Team Freiheit</title>
 <link rel="icon" type="image/png" href="favicon.png">
+<title>Pleiteticker MV – Team Freiheit</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -32,8 +32,6 @@
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
-
-  /* HEADER */
   header {
     background: rgba(10,18,28,0.92);
     backdrop-filter: blur(4px);
@@ -50,8 +48,6 @@
   .site-id .s1 { font-size:1.05rem; font-weight:800; color:var(--weiss); }
   .site-id .s2 { font-size:.68rem; color:var(--grau); }
   .hdr-badge { border:1.5px solid var(--gold); color:var(--gold); padding:5px 14px; border-radius:3px; font-size:.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
-
-  /* TICKER BAND */
   .band { background:rgba(243,185,37,.07); border-bottom:1px solid var(--gold-brd); height:36px; overflow:hidden; position:relative; display:flex; align-items:center; }
   .band-tag { position:absolute; left:0; top:0; bottom:0; background:var(--gold); color:var(--blau); display:flex; align-items:center; padding:0 14px; font-size:.62rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; z-index:2; white-space:nowrap; }
   .band-scroll { display:flex; animation:bscroll 60s linear infinite; padding-left:108px; will-change:transform; }
@@ -62,8 +58,6 @@
   .bi .fb { color:var(--gold); font-size:.7rem; font-weight:600; }
   .bi .fs { color:var(--gold); opacity:.4; padding:0 4px; }
   @keyframes bscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-  /* HERO */
   .hero { background:transparent; padding:52px 24px 40px; text-align:center; position:relative; overflow:hidden; }
   .hero::after { content:''; position:absolute; top:25%; left:50%; transform:translate(-50%,-50%); width:600px; height:350px; background:radial-gradient(ellipse, rgba(243,185,37,.08) 0%, transparent 70%); pointer-events:none; }
   .hero-eye { font-size:.7rem; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; position:relative; z-index:1; }
@@ -79,30 +73,22 @@
   .upd-row { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:18px; font-size:.7rem; color:var(--grau); position:relative; z-index:1; }
   .ldot { width:6px; height:6px; border-radius:50%; background:#4ade80; flex-shrink:0; animation:blink 2.5s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
-
-  /* BREAKING BANNER */
   .breaking { max-width:980px; margin:0 auto; padding:0 20px; position:relative; z-index:1; }
   .breaking-inner { background:linear-gradient(135deg, rgba(243,185,37,0.15) 0%, rgba(243,185,37,0.05) 100%); border:2px solid var(--gold); border-radius:8px; padding:18px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .breaking-tag { background:var(--gold); color:var(--blau); font-size:.65rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:3px; white-space:nowrap; flex-shrink:0; }
   .breaking-text { font-size:.85rem; color:var(--text); line-height:1.55; flex:1; }
   .breaking-text strong { color:var(--gold); }
-
-  /* MAIN */
   main { max-width:980px; margin:0 auto; padding:28px 20px 48px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   @media(max-width:640px){ main{grid-template-columns:1fr} }
   .card { background:rgba(13,21,32,0.85); border-radius:6px; padding:20px 22px; border:1px solid rgba(255,255,255,0.07); }
   .card-full { grid-column:1/-1; }
   .ch { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--gold-brd); }
-
-  /* DIESE WOCHE */
   .week-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--gold-brd); flex-wrap:wrap; gap:8px; }
   .week-title-group { display:flex; align-items:center; gap:8px; }
   .week-title { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-count { font-size:1.6rem; font-weight:900; color:var(--weiss); line-height:1; }
   .week-count-lbl { font-size:.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
   .week-badge { background:var(--gold); color:var(--blau); padding:3px 10px; border-radius:3px; font-size:.65rem; font-weight:800; }
-
-  /* FÄLLE */
   .cases { display:flex; flex-direction:column; gap:9px; }
   .case { display:flex; gap:12px; padding:11px 13px; background:rgba(255,255,255,.03); border-radius:5px; border-left:2px solid var(--gold); }
   .cdot { width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:5px; flex-shrink:0; animation:blink 2.5s infinite; }
@@ -111,8 +97,6 @@
   .ctag { display:inline-block; background:var(--gold-dim); border:1px solid var(--gold-brd); border-radius:3px; padding:1px 7px; font-size:.65rem; font-weight:700; color:var(--gold); margin-left:6px; }
   .cnote { margin-top:11px; font-size:.7rem; color:var(--grau); }
   .cnote a { color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-brd); }
-
-  /* JAHRESVERGLEICH */
   .bars { display:flex; flex-direction:column; gap:11px; }
   .bar-row { display:flex; align-items:center; gap:10px; }
   .bar-yr { width:32px; font-size:.73rem; color:var(--grau); flex-shrink:0; }
@@ -121,8 +105,6 @@
   .bold  { background:rgba(243,185,37,.15); color:var(--grau); }
   .bprev { background:rgba(243,185,37,.35); color:var(--text); }
   .bcur  { background:var(--gold); color:var(--blau); }
-
-  /* BRANCHEN */
   .branchen { display:flex; flex-direction:column; gap:10px; }
   .br-row { display:flex; align-items:center; gap:10px; }
   .br-label { width:130px; font-size:.75rem; color:var(--text); flex-shrink:0; }
@@ -133,8 +115,6 @@
   .bc3 { background:rgba(243,185,37,.4); color:var(--weiss); }
   .bc4 { background:rgba(243,185,37,.25); color:var(--grau); }
   .bc5 { background:rgba(243,185,37,.15); color:var(--grau); }
-
-  /* FAKTEN */
   .facts { display:flex; flex-direction:column; }
   .fact { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.05); }
   .fact:last-child { border-bottom:none; }
@@ -143,15 +123,12 @@
   .fg { color:var(--gold); }
   .fw { color:var(--weiss); }
   .fd { color:var(--grau); }
-
-  /* CTA */
   .cta { grid-column:1/-1; background:linear-gradient(135deg,rgba(243,185,37,.1) 0%,rgba(243,185,37,.02) 100%); border:1px solid var(--gold-brd); border-radius:6px; padding:28px 26px; display:flex; align-items:center; justify-content:space-between; gap:22px; flex-wrap:wrap; }
   .cta-txt h2 { font-size:1.05rem; font-weight:800; margin-bottom:6px; }
   .cta-txt h2 span { color:var(--gold); }
   .cta-txt p { font-size:.82rem; color:var(--grau); max-width:480px; line-height:1.55; }
   .cta-btn { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--blau); padding:11px 22px; border-radius:4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:.85rem; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:filter .15s,transform .1s; }
   .cta-btn:hover { filter:brightness(1.1); transform:translateY(-1px); }
-
   footer { border-top:1px solid rgba(255,255,255,.06); padding:18px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:.68rem; color:var(--grau); }
   footer a { color:var(--grau); text-decoration:underline; }
   .fbrand { font-weight:700; color:var(--gold); }
@@ -177,7 +154,7 @@
 </div>
 
 <div class="hero">
-  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 29.05.2026</div>
+  <div class="hero-eye">Mecklenburg-Vorpommern · 01.01.2026 – 06.06.2026</div>
   <div class="ctr-wrap">
     <div class="ctr-num" id="mainCtr">0</div>
     <div class="ctr-plus">+</div>
@@ -185,8 +162,8 @@
   <div class="hero-lbl">eröffnete Insolvenzverfahren in MV seit Jahresbeginn</div>
   <div class="hero-sub">Stand: <span id="standDatum">–</span> · Nur Eröffnungen · Wöchentlich aktualisiert · Quelle: insolvenzbekanntmachungen.de</div>
   <div class="pills">
-    <div class="pill"><span class="pv">+70 %</span><span class="pl">mehr als im Vorjahreszeitraum</span></div>
-    <div class="pill"><span class="pv">90 → 153</span><span class="pl">Jan–Mai 2025 vs. 2026</span></div>
+    <div class="pill"><span class="pv">+125 %</span><span class="pl">mehr als im Vorjahreszeitraum</span></div>
+    <div class="pill"><span class="pv">97 → 218</span><span class="pl">Jan–Jun 2025 vs. 2026</span></div>
     <div class="pill"><span class="pv">Bau & Gastro</span><span class="pl">am stärksten betroffen</span></div>
   </div>
   <div class="upd-row">
@@ -195,19 +172,17 @@
   </div>
 </div>
 
-<!-- BREAKING BANNER -->
 <div class="breaking">
   <div class="breaking-inner">
     <div class="breaking-tag">⚠️ Ausreißerwoche</div>
     <div class="breaking-text">
-      <strong>37 Eröffnungen in KW 22</strong> — bereits die zweite Ausreißerwoche in Folge. In nur 2 Wochen: <strong>73 Insolvenzen</strong> — das sind 48 % aller bisherigen Verfahren 2026.
+      <strong>62 Eröffnungen in KW 23</strong> — die stärkste Woche des Jahres. Allein am 01.06. wurden <strong>28 Verfahren</strong> eröffnet. Drei Wochen in Folge deutlich über dem Durchschnitt.
     </div>
   </div>
 </div>
 
 <main>
 
-  <!-- DIESE WOCHE -->
   <div class="card card-full">
     <div class="week-header">
       <div class="week-title-group">
@@ -224,31 +199,28 @@
     </div>
   </div>
 
-  <!-- JAHRESVERGLEICH -->
   <div class="card">
     <div class="ch">Jahresvergleich · Eröffnungen MV · insolvenzbekanntmachungen.de</div>
     <div class="bars">
-      <div class="bar-row"><div class="bar-yr">2022</div><div class="bar-outer"><div class="bar-inner bold" data-w="53">101</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2023</div><div class="bar-outer"><div class="bar-inner bprev" data-w="75">143</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2024</div><div class="bar-outer"><div class="bar-inner bprev" data-w="64">122</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2025</div><div class="bar-outer"><div class="bar-inner bprev" data-w="100">192</div></div></div>
-      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">153 (Jan–Mai) +70%</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2022</div><div class="bar-outer"><div class="bar-inner bold" data-w="46">101</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2023</div><div class="bar-outer"><div class="bar-inner bprev" data-w="66">143</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2024</div><div class="bar-outer"><div class="bar-inner bprev" data-w="56">122</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2025</div><div class="bar-outer"><div class="bar-inner bprev" data-w="88">192</div></div></div>
+      <div class="bar-row"><div class="bar-yr">2026</div><div class="bar-outer"><div class="bar-inner bcur" data-w="100">218 (Jan–Jun) +125%</div></div></div>
     </div>
   </div>
 
-  <!-- FAKTEN -->
   <div class="card">
     <div class="ch">Zahlen & Fakten</div>
     <div class="facts">
-      <div class="fact"><div class="fl">Eröffnungen Jan–Mai 2025</div><div class="fv fd">90 Verfahren</div></div>
-      <div class="fact"><div class="fl">Eröffnungen Jan–Mai 2026</div><div class="fv fg">153 Verfahren</div></div>
-      <div class="fact"><div class="fl">Anstieg ggü. Vorjahr</div><div class="fv fg">+70 %</div></div>
+      <div class="fact"><div class="fl">Eröffnungen Jan–Jun 2025</div><div class="fv fd">97 Verfahren</div></div>
+      <div class="fact"><div class="fl">Eröffnungen Jan–Jun 2026</div><div class="fv fg">218 Verfahren</div></div>
+      <div class="fact"><div class="fl">Anstieg ggü. Vorjahr</div><div class="fv fg">+125 %</div></div>
       <div class="fact"><div class="fl">Prognose 2026 bundesweit</div><div class="fv fw">+3 % (CRIF)</div></div>
       <div class="fact"><div class="fl">Stärkste Branche</div><div class="fv fd">Baugewerbe</div></div>
     </div>
   </div>
 
-  <!-- SCHLAGLICHTER -->
   <div class="card card-full">
     <div class="ch">Schlaglichter · Große Insolvenzen 2026 in MV</div>
     <div class="cases" id="bigCaseList"></div>
@@ -258,7 +230,6 @@
     </div>
   </div>
 
-  <!-- BRANCHEN -->
   <div class="card card-full">
     <div class="ch">Betroffene Branchen · MV 2024 (Creditreform)</div>
     <div class="branchen">
@@ -270,7 +241,6 @@
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="cta">
     <div class="cta-txt">
       <h2>MV verdient <span>bessere Wirtschaftspolitik.</span></h2>
@@ -287,59 +257,55 @@
 </footer>
 
 <script>
-// ── NUR DIESEN BLOCK WÖCHENTLICH ANPASSEN ────────────────────────────
 const DATA = {
-  verfahren: 153,
-  stand: "29.05.2026",
+  verfahren: 218,
+  stand: "06.06.2026",
 
   woche: {
-    label: "KW 22 · 25.–31.05.2026",
-    anzahl: 37,
+    label: "KW 23 · 01.–07.06.2026",
+    anzahl: 62,
     faelle: [
+      { name: "SOIBELMANNS Hotel Rügen GmbH", ort: "Samtens", branche: "Gastgewerbe" },
+      { name: "KüstenKeks GmbH & Co. KG", ort: "Roggentin", branche: "Lebensmittel" },
+      { name: "Titanium Textiles AG", ort: "Bentwisch", branche: "Industrie" },
+      { name: "EHC Hotelbesitz GmbH", ort: "Wendorf", branche: "Gastgewerbe" },
+      { name: "K. Heinrich Haus- und Grundbesitzverwaltung GmbH", ort: "Schwerin", branche: "Immobilien" },
+      { name: "2M GmbH Meisterbetrieb", ort: "Gägelow", branche: "Handwerk" },
+      { name: "Garten- und Landschaftsgestaltung Porm GmbH", ort: "Kröpelin", branche: "Handwerk" },
+      { name: "pxMEDIA.de GmbH", ort: "Rostock", branche: "Medien" },
+      { name: "PMC GmbH", ort: "Rehna", branche: "Dienstleistung" },
       { name: "Pi Print GmbH", ort: "Stralsund", branche: "Druck/Medien" },
-      { name: "Gebhardt, Jürgen", ort: "Gadebusch", branche: "Privatinsolvenz" },
-      { name: "Füßle, Joanne Jasmin", ort: "Schwerin", branche: "Privatinsolvenz" },
-      { name: "Höhne, Lars", ort: "Bansin", branche: "Privatinsolvenz" },
-      { name: "Kuczmann, Tobias", ort: "Schwerin", branche: "Privatinsolvenz" },
-      { name: "Radtke, Vivian-Michelle", ort: "Neubrandenburg", branche: "Privatinsolvenz" },
-      { name: "Röhl, Daniel", ort: "Rostock", branche: "Privatinsolvenz" },
-      { name: "Abdullah, Adnan", ort: "Neubrandenburg", branche: "Privatinsolvenz" },
-      { name: "Ehrlich, Hanno", ort: "Peenehagen", branche: "Privatinsolvenz" },
-      { name: "Woelk, Maik", ort: "Dabel", branche: "Privatinsolvenz" },
     ]
   },
 
   bigFaelle: [
+    { name: "SOIBELMANNS Hotel Rügen GmbH", ort: "Samtens / Rügen", datum: "03.06.2026", info: "Bekanntes Rügener Hotel insolvent", branche: "Gastgewerbe" },
+    { name: "Titanium Textiles AG", ort: "Bentwisch", datum: "01.06.2026", info: "Textilunternehmen insolvent", branche: "Industrie" },
+    { name: "KüstenKeks GmbH & Co. KG", ort: "Roggentin", datum: "01.06.2026", info: "Regionaler Lebensmittelhersteller", branche: "Lebensmittel" },
     { name: "Revo Hospitality Group", ort: "Schwerin, Rostock, Rügen, Stralsund, Wismar, Neustadt-Glewe", datum: "April 2026", info: "6 Hotels in MV betroffen · Eigenverwaltung beantragt", branche: "Gastgewerbe" },
     { name: "BLF Schweineaufzucht GmbH + MV Babyporc GmbH", ort: "Landkreis Rostock & Mecklenburgische Seenplatte", datum: "April 2026", info: "5 Betriebsteile · 28 Mitarbeiter · Biogasanlage mitbetroffen", branche: "Landwirtschaft" },
-    { name: "Hotelgesellschaft Stuersche Hintermühle GmbH & Co. KG", ort: "Stuer", datum: "17.04.2026", info: "Traditionelles Landhotel insolvent", branche: "Gastgewerbe" },
-    { name: "Honigprinz GmbH", ort: "Rostock", datum: "16.04.2026", info: "Regionaler Lebensmittelhersteller", branche: "Lebensmittel" },
-    { name: "Cara Tech GmbH", ort: "Crivitz", datum: "27.03.2026", info: "Technologieunternehmen", branche: "Technologie" },
     { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", datum: "25.03.2026", info: "Bauunternehmen insolvent", branche: "Baugewerbe" },
   ],
 
   ticker: [
-    { name: "Pi Print GmbH", ort: "Stralsund", branche: "Druck/Medien" },
+    { name: "SOIBELMANNS Hotel Rügen GmbH", ort: "Samtens", branche: "Gastgewerbe" },
+    { name: "KüstenKeks GmbH & Co. KG", ort: "Roggentin", branche: "Lebensmittel" },
+    { name: "Titanium Textiles AG", ort: "Bentwisch", branche: "Industrie" },
     { name: "Revo Hospitality Group", ort: "6 Hotels MV", branche: "Gastgewerbe" },
     { name: "BLF Schweineaufzucht GmbH", ort: "Bernitt", branche: "Landwirtschaft" },
-    { name: "Honigprinz GmbH", ort: "Rostock", branche: "Lebensmittel" },
     { name: "AMEX Hausbau GmbH", ort: "Jürgenshagen", branche: "Baugewerbe" },
-    { name: "Cara Tech GmbH", ort: "Crivitz", branche: "Technologie" },
   ]
 };
-// ─────────────────────────────────────────────────────────────────────
 
 function animateCounter(el, target, ms=2200) {
   let v=0, step=target/(ms/16);
   const t=setInterval(()=>{ v=Math.min(v+step,target); el.textContent=Math.floor(v).toLocaleString('de-DE'); if(v>=target)clearInterval(t); },16);
 }
-
 function animateBars() {
   document.querySelectorAll('.bar-inner, .br-bar-inner').forEach(b=>{
     setTimeout(()=>{ b.style.width=b.dataset.w+'%'; },250);
   });
 }
-
 function renderWeek() {
   document.getElementById('weekLabel').textContent = DATA.woche.label;
   document.getElementById('weekCount').textContent = DATA.woche.anzahl;
@@ -352,7 +318,6 @@ function renderWeek() {
       </div>
     </div>`).join('');
 }
-
 function renderBigCases() {
   document.getElementById('bigCaseList').innerHTML = DATA.bigFaelle.map(f=>`
     <div class="case">
@@ -364,7 +329,6 @@ function renderBigCases() {
       </div>
     </div>`).join('');
 }
-
 function buildTicker() {
   const html = DATA.ticker.map(f=>
     `<span class="bi"><span class="fn">${f.name}</span> <span class="fb">[${f.branche}]</span> <span class="fo">(${f.ort})</span><span class="fs"> ◆ </span></span>`
