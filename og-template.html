@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --gold:#f3b925; --grau:#8ba3cc; --text:#f0f4ff; }
+html,body { width:1200px; height:630px; overflow:hidden; }
+body {
+font-family:'Poppins', sans-serif;
+background-color:#0d1520;
+background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 12px);
+color:var(--text);
+position:relative;
+}
+.card { position:absolute; top:30px; left:65px; right:65px; bottom:30px; }
+.bar { height:6px; background:var(--gold); border-radius:2px; }
+.bar-bottom { position:absolute; bottom:0; left:0; right:0; }
+.header-row { display:flex; justify-content:space-between; align-items:flex-start; margin-top:38px; }
+.brand .s1 { font-size:30px; font-weight:800; color:#fff; }
+.brand .s2 { font-size:15px; color:var(--grau); margin-top:4px; }
+.badge { border:2px solid var(--gold); color:var(--gold); padding:8px 18px; border-radius:4px; font-size:14px; font-weight:800; letter-spacing:1.5px; }
+.center { text-align:center; position:relative; }
+.eyebrow { font-size:15px; font-weight:800; letter-spacing:3px; color:var(--gold); margin-top:58px; text-transform:uppercase; position:relative; z-index:1; }
+.glow { position:absolute; top:70px; left:50%; transform:translateX(-50%); width:700px; height:400px; background:radial-gradient(ellipse, rgba(243,185,37,.32) 0%, transparent 70%); pointer-events:none; z-index:0; }
+.numwrap { position:relative; display:flex; justify-content:center; align-items:flex-start; margin-top:14px; z-index:1; }
+.num { font-size:170px; font-weight:900; color:#fff; line-height:1; letter-spacing:-6px; }
+.plus { font-size:70px; font-weight:900; color:var(--gold); margin-top:8px; margin-left:8px; }
+.sub { font-size:26px; font-weight:600; color:#fff; margin-top:10px; position:relative; z-index:1; }
+.pills { display:flex; justify-content:center; gap:16px; margin-top:26px; position:relative; z-index:1; }
+.pill { background:rgba(255,255,255,.05); border:1px solid rgba(243,185,37,.4); border-radius:4px; padding:12px 22px; font-size:20px; display:flex; gap:8px; align-items:center; }
+.pv { font-weight:800; color:var(--gold); }
+.pl { color:var(--grau); font-size:17px; }
+.footer { text-align:center; font-size:15px; color:var(--grau); margin-top:28px; position:relative; z-index:1; }
+</style>
+</head>
+<body>
+<div class="card">
+<div class="bar"></div>
+<div class="header-row">
+<div class="brand">
+<div class="s1">PLEITETICKER MV</div>
+<div class="s2">Insolvenzmonitor Mecklenburg-Vorpommern</div>
+</div>
+<div class="badge">LANDTAGSWAHL 2026</div>
+</div>
+<div class="center">
+<div class="eyebrow">MECKLENBURG-VORPOMMERN &middot; SEIT 01.01.2026</div>
+<div class="glow"></div>
+<div class="numwrap">
+<div class="num">449</div>
+<div class="plus">+</div>
+</div>
+<div class="sub">er&ouml;ffnete Insolvenzverfahren in MV seit Jahresbeginn</div>
+<div class="pills">
+<div class="pill"><span class="pv">+332&nbsp;%</span><span class="pl">mehr als Vorjahreszeitraum</span></div>
+<div class="pill"><span class="pv">104&nbsp;&rarr;&nbsp;449</span><span class="pl">Jan&ndash;Jul 2025 vs. 2026</span></div>
+</div>
+<div class="footer">Stand: 06.07.2026 &middot; Quelle: insolvenzbekanntmachungen.de &middot; W&ouml;chentlich aktualisiert</div>
+</div>
+<div class="bar bar-bottom"></div>
+</div>
+</body>
+</html>
