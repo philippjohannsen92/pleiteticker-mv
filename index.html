@@ -35,6 +35,11 @@ header { border-bottom:3px solid var(--fg); padding:14px 28px; display:flex; ali
 .site-id .s1 { font-size:1.1rem; font-weight:900; color:var(--fg); text-transform:uppercase; letter-spacing:.5px; }
 .site-id .s2 { font-size:.64rem; color:var(--muted); text-transform:uppercase; letter-spacing:1.6px; margin-top:2px; }
 .hdr-badge { border:2.5px solid var(--fg); color:var(--fg); padding:6px 14px; font-size:.62rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; }
+.hdr-right { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.hdr-cta { display:inline-flex; align-items:center; gap:8px; background:var(--fg); color:var(--bg); padding:11px 20px; font-weight:900; font-size:.74rem; text-transform:uppercase; letter-spacing:1px; text-decoration:none; border:2px solid var(--fg); white-space:nowrap; transition:background .15s,color .15s,transform .1s; }
+.hdr-cta:hover { background:transparent; color:var(--fg); transform:translateY(-1px); }
+.hdr-cta .arw { transition:transform .15s; }
+.hdr-cta:hover .arw { transform:translateX(3px); }
 
 /* ---------- LIVE BAND ---------- */
 .ticker { border-bottom:1px solid var(--line); height:38px; overflow:hidden; position:relative; display:flex; align-items:center; }
@@ -60,6 +65,12 @@ header { border-bottom:3px solid var(--fg); padding:14px 28px; display:flex; ali
 .pill:last-child { border-right:none; }
 .pv { font-weight:900; background:var(--hl-bg); color:var(--hl-fg); padding:0 6px; }
 .pl { color:var(--muted); }
+.hero-cta-wrap { margin:26px 0 2px; }
+.hero-cta { display:inline-flex; align-items:center; gap:11px; background:var(--fg); color:var(--bg); padding:17px 34px; font-weight:900; font-size:clamp(1rem,2.1vw,1.25rem); text-transform:uppercase; letter-spacing:.5px; text-decoration:none; border:2px solid var(--fg); transition:background .15s,color .15s,transform .1s; }
+.hero-cta:hover { background:transparent; color:var(--fg); transform:translateY(-2px); }
+.hero-cta .arw { transition:transform .15s; }
+.hero-cta:hover .arw { transform:translateX(4px); }
+.hero-cta-sub { margin-top:12px; font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px; }
 .upd-row { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:20px; font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
 .ldot { width:7px; height:7px; border-radius:50%; background:var(--fg); animation:blink 2.5s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
@@ -147,7 +158,9 @@ footer a { color:var(--muted); text-decoration:underline; }
 <div class="s2">Insolvenzmonitor Mecklenburg-Vorpommern</div>
 </div>
 </div>
-<div class="hdr-badge">Landtagswahl 2026</div>
+<div class="hdr-right">
+<a href="https://machmit-team-freiheit.pages.dev/#mitmachen" class="hdr-cta" target="_blank" rel="noopener">Welches Team bist du? <span class="arw">→</span></a>
+</div>
 </header>
 
 <div class="ticker band band-dark">
@@ -169,6 +182,10 @@ footer a { color:var(--muted); text-decoration:underline; }
 <div class="pill"><span class="pv">+400 %</span><span class="pl">ggü. Vorjahreszeitraum</span></div>
 <div class="pill"><span class="pv">104 → 520</span><span class="pl">Jan–Jul 2025 vs. 2026</span></div>
 <div class="pill"><span class="pv">Bau &amp; Gastro</span><span class="pl">am stärksten betroffen</span></div>
+</div>
+<div class="hero-cta-wrap">
+<a href="https://machmit-team-freiheit.pages.dev/#mitmachen" class="hero-cta" target="_blank" rel="noopener">Welches Team bist du? <span class="arw">→</span></a>
+<div class="hero-cta-sub">Mach mit — finde dein Team</div>
 </div>
 <div class="upd-row"><span class="ldot"></span> Nächste Aktualisierung: Freitag Nachmittag</div>
 </div>
